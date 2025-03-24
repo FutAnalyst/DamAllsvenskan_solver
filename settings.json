@@ -26,5 +26,6 @@
     "use_cmd": false,
     "weekly_hit_limit": 1,
     "export_image": false,
-    "locked_next_gw": []
+    "locked_next_gw": [],
+    "datasource": null
 }

@@ -127,6 +127,12 @@ def solve_regular(runtime_options=None):
                 finally:
                     pass
 
+            try:
+                args[key] = str(value)
+                continue
+            except (SyntaxError, ValueError):
+                pass
+
             print(f"Problem with CL argument: {key}. Original value: {options[key]}, New value: {value}")
 
     cli_options = {k: v for k, v in args.items() if v is not None and k != "config"}
