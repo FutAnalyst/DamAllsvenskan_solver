@@ -167,14 +167,19 @@ def prep_data(my_data, options):
 
     # data = read_data(options, datasource, data_weights)
     # data = pd.read_csv("data/vamps.csv")
-    list_of_files = glob.glob("data/*.csv")
-    try:
-        latest_file = max(list_of_files, key=os.path.getctime)
-        print(f"Using prediction file: {latest_file}")
-        data = pd.read_csv(latest_file)
-    except Exception as e:
-        print("Cannot find prediction data in the folder! Upload it to /data/ and make sure it is a .csv file")
-        exit(0)
+    datasource = options.get("datasource")
+    if datasource:
+        data = pd.read_csv(f"data/{datasource}.csv")
+
+    else:
+        list_of_files = glob.glob("data/*.csv")
+        try:
+            latest_file = max(list_of_files, key=os.path.getctime)
+            print(f"Using prediction file: {latest_file}")
+            data = pd.read_csv(latest_file)
+        except Exception as e:
+            print("Cannot find prediction data in the folder! Upload it to /data/ and make sure it is a .csv file")
+            exit(0)
 
     data = data.fillna(0)
     if "ID" in data:
