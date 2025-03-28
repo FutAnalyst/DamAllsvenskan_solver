@@ -13,7 +13,7 @@ import requests
 
 from visualisation import create_squad_timeline
 
-BASE_URL = "https://en.fantasy.allsvenskan.se/api"
+BASE_URL = "https://fantasy.obosdamallsvenskan.se/api"
 
 
 def get_random_id(n):
