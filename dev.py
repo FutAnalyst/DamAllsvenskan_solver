@@ -17,7 +17,7 @@ import sasoptpy as so
 warnings.simplefilter(action="ignore", category=FutureWarning)
 import pandas as pd  # noqa: E402
 
-BASE_URL = "https://en.fantasy.allsvenskan.se/api"
+BASE_URL = "https://fantasy.obosdamallsvenskan.se/api"
 
 
 def get_random_id(n):
